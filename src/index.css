@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-apex-forest: #1B4332;
+  --color-apex-mint: #B7E4C7;
+  --color-apex-mint-light: #D8F3DC;
+  --color-apex-bg: #F8F9FA;
+  --color-apex-text-muted: #52796F;
+  --color-apex-card: #FFFFFF;
+  
+  --radius-4xl: 40px;
+}
+
+@layer base {
+  body {
+    @apply bg-apex-bg text-apex-forest font-sans antialiased;
+  }
+}
+
+@layer components {
+  .card-shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .pending-stripes {
+    background: repeating-linear-gradient(
+      45deg,
+      #f3f4f6,
+      #f3f4f6 10px,
+      #ffffff 10px,
+      #ffffff 20px
+    );
+  }
+
+  .glass-nav {
+    @apply bg-white/90 backdrop-blur-md border-b border-black/5 sticky top-0 z-50;
+  }
+}
+
+/* Custom animations for the "Agentic" feel */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.agent-pulsing {
+  animation: pulse-soft 2s infinite ease-in-out;
+}
